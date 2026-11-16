@@ -3,278 +3,515 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#E2580B">
+<meta property="og:title" content="Día Naranja 25N">
+<meta property="og:description" content="Teléfonos y lugares de ayuda en Aguascalientes, violentómetro y materiales de la expo.">
 <style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<script>window.MODO_WEB=true</script>
 </head>
 <body>
 <title>Día Naranja 25N</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Descarga el cartel y la presentación del Día Naranja 25N y encuentra los teléfonos de ayuda en Aguascalientes.">
+<meta name="description" content="Teléfonos de ayuda, lugares con mapa, violentómetro y materiales del Día Naranja 25N en Aguascalientes.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500;62..125,800;62..125,900&family=Source+Sans+3:wght@400;600;700&display=swap">
 <style>
-/* Layout: banda naranja de portada → dos descargas lado a lado → directorio de teléfonos en filas grandes para tocar con el pulgar */
+/* Layout: portada naranja → pide ayuda (911/079) → lugares con mapa → violentómetro → cómo acompañar → materiales. En celular, barra fija abajo con 911 / Ayuda / Mapa. */
 :root{
   --naranja:#E2580B;
-  --naranja-claro:#FF8A3D;
+  --naranja-hover:#C94C08;
   --tinta:#0C1A2E;
   --papel:#FFF8F2;
   --superficie:#FFFFFF;
+  --hundido:#F6E7DB;
   --linea:#F1D9C8;
   --suave:#5B4A40;
   --sobre-naranja:#FFF8F2;
   --emergencia:#B3261E;
+  --amarillo:#F2B705;
+  --amarillo-fondo:#FFF4CC;
+  --rojo:#C62828;
+  --rojo-fondo:#FDE3E1;
+  --naranja-fondo:#FFE6D5;
   --display:"Archivo","Arial Narrow",Arial,sans-serif;
   --texto:"Source Sans 3","Segoe UI",system-ui,sans-serif;
 }
-@media (prefers-color-scheme: dark){
-  :root:not([data-theme="light"]){
-    --naranja:#E2580B; --naranja-claro:#FF9A55; --tinta:#F7ECE3; --papel:#14100E;
-    --superficie:#1F1916; --linea:#3A2C24; --suave:#C9B6A8; --sobre-naranja:#FFF8F2;
-    --emergencia:#FF8A80; color-scheme:dark;
-  }
-}
-:root[data-theme="dark"]{
-  --naranja:#E2580B; --naranja-claro:#FF9A55; --tinta:#F7ECE3; --papel:#14100E;
-  --superficie:#1F1916; --linea:#3A2C24; --suave:#C9B6A8; --sobre-naranja:#FFF8F2;
-  --emergencia:#FF8A80; color-scheme:dark;
-}
+:root{color-scheme:light}
 *{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{background:var(--papel);color:var(--tinta);font-family:var(--texto);font-size:17px;line-height:1.5}
 .envoltura{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--tinta);outline-offset:3px}
+
+/* Salida rápida */
+.salir{position:fixed;z-index:20;top:calc(10px + env(safe-area-inset-top,0px));right:calc(10px + env(safe-area-inset-right,0px));display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:#0C1A2E;color:#FFF8F2;font:700 14px var(--texto);text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.salir svg{width:14px;height:14px}
 
 /* Portada */
 .portada{background:var(--naranja);color:var(--sobre-naranja);overflow:hidden;position:relative}
-.portada .envoltura{padding-block:40px 48px;position:relative;z-index:1}
-.logos{display:block;height:84px;width:auto;margin-bottom:22px}
-@media (max-width:560px){.logos{height:64px}}
-.sello{font-family:var(--texto);font-weight:700;font-size:13px;letter-spacing:.18em;text-transform:uppercase;opacity:.92}
-.portada h1{font-family:var(--display);font-weight:900;font-stretch:88%;font-size:clamp(56px,13vw,132px);line-height:.88;letter-spacing:-.02em;margin:18px 0 10px;text-wrap:balance}
-.portada .fecha{font-family:var(--display);font-weight:800;font-stretch:100%;font-size:clamp(22px,4vw,34px);color:#0C1A2E;margin:0}
-.portada p.lema{max-width:34ch;font-size:19px;margin:16px 0 0}
-.portada .acciones-rapidas{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.portada .envoltura{padding-block:28px 40px;position:relative;z-index:1}
+.logos{display:block;height:72px;width:auto;margin-bottom:22px}
+.sello{font-weight:700;font-size:13px;letter-spacing:.18em;text-transform:uppercase;opacity:.92}
+.portada h1{font-family:var(--display);font-weight:900;font-stretch:88%;font-size:clamp(56px,13vw,132px);line-height:.88;letter-spacing:-.02em;margin:14px 0 10px;text-wrap:balance}
+.portada .fecha{font-family:var(--display);font-weight:800;font-size:clamp(22px,4vw,34px);color:#0C1A2E;margin:0}
+.portada p.lema{max-width:36ch;font-size:19px;margin:14px 0 0}
+.atajos{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
 .chip{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:999px;font-weight:700;font-size:16px;text-decoration:none;border:2px solid var(--sobre-naranja);color:var(--sobre-naranja)}
 .chip.lleno{background:#0C1A2E;border-color:#0C1A2E;color:#FFF8F2}
-.chip:focus-visible,.boton:focus-visible,.llamar:focus-visible,.copiar:focus-visible{outline:3px solid #0C1A2E;outline-offset:3px}
-.siluetas{position:absolute;right:-60px;bottom:-40px;width:min(46vw,440px);height:auto;opacity:.95;pointer-events:none}
-@media (max-width:640px){.siluetas{opacity:.28;right:-90px}}
+.portada :focus-visible{outline-color:#0C1A2E}
+@media (max-width:640px){.logos{height:56px}}
 
 /* Secciones */
 section.bloque{padding-block:48px 8px}
 .etiqueta{font-weight:700;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--naranja)}
 h2{font-family:var(--display);font-weight:800;font-stretch:92%;font-size:clamp(30px,5vw,44px);line-height:1.05;margin:6px 0 8px;text-wrap:balance}
+h3{font-family:var(--display);font-weight:800;line-height:1.1;margin:0}
 .intro{color:var(--suave);max-width:60ch;margin:0 0 24px}
 
-/* Descargas */
+/* Botones */
+.llamar,.ir,.boton{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:10px 18px;border-radius:999px;font:700 16px var(--texto);text-decoration:none;border:0;cursor:pointer}
+.llamar{background:var(--naranja);color:#FFF8F2}
+.llamar:hover,.boton:hover{background:var(--naranja-hover)}
+.llamar.urg{background:#B3261E}
+.ir{background:transparent;border:1.5px solid var(--linea);color:var(--tinta)}
+.ir:hover{border-color:var(--naranja)}
+.llamar svg,.ir svg,.boton svg{width:18px;height:18px;flex:none}
+.copiar{min-height:48px;padding:10px 16px;border-radius:999px;background:transparent;border:1.5px solid var(--linea);color:var(--tinta);font:600 15px var(--texto);cursor:pointer}
+.copiar:hover{border-color:var(--naranja)}
+
+/* Ayuda inmediata */
+.ahora{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.linea-ayuda{display:flex;flex-direction:column;gap:10px;background:var(--superficie);border:1px solid var(--linea);border-radius:14px;padding:18px 20px}
+.linea-ayuda.urgente{border:2px solid var(--emergencia)}
+.linea-ayuda .quien{font-weight:700;font-size:18px;margin:0}
+.linea-ayuda .para{color:var(--suave);font-size:15px;margin:0}
+.numero{font-family:var(--display);font-weight:800;font-size:clamp(30px,6vw,40px);line-height:1;font-variant-numeric:tabular-nums;margin:2px 0;user-select:all}
+.urgente .numero{color:var(--emergencia)}
+.fila-botones{display:flex;flex-wrap:wrap;gap:8px}
+.fila-botones .llamar{flex:1 1 140px}
+
+.aviso{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start;margin-top:16px;padding:16px 18px;border-radius:14px;background:var(--naranja-fondo)}
+.aviso .reloj{font-family:var(--display);font-weight:900;font-size:30px;line-height:1;color:var(--naranja);font-variant-numeric:tabular-nums}
+.aviso .reloj small{display:block;font:700 12px var(--texto);letter-spacing:.12em;text-transform:uppercase;margin-top:4px}
+.aviso p{margin:0;max-width:62ch}
+.aviso strong{font-weight:700}
+
+/* Lugares */
+.lugares{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.lugar{display:flex;flex-direction:column;gap:10px;background:var(--superficie);border:1px solid var(--linea);border-radius:14px;padding:18px 20px;min-width:0}
+.lugar h3{font-size:22px}
+.pills{display:flex;flex-wrap:wrap;gap:6px}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:13px;font-weight:700;background:var(--hundido);color:var(--suave)}
+.pill.abierto{background:#1B5E20;color:#FFFFFF}
+.lugar .que{margin:0;font-size:15px;color:var(--suave)}
+.lugar address{font-style:normal;font-size:15px;display:flex;gap:8px;align-items:flex-start}
+.lugar address svg{width:16px;height:16px;flex:none;margin-top:3px;color:var(--naranja)}
+.tels{display:flex;flex-direction:column;gap:2px;font-size:15px}
+.tels a{font-weight:700;font-variant-numeric:tabular-nums;text-decoration:none;border-bottom:1.5px solid var(--linea);align-self:flex-start}
+.tels a:hover{border-color:var(--naranja)}
+.lugar .fila-botones{margin-top:auto;padding-top:6px}
+.lugar .fila-botones>*{flex:1 1 120px}
+.mapa{border-radius:10px;overflow:hidden;background:var(--hundido);aspect-ratio:4/3;max-width:100%}
+.mapa iframe{width:100%;height:100%;border:0;display:block}
+
+/* Violentómetro */
+.violentometro{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-radius:14px;overflow:hidden;border:1px solid var(--linea)}
+.zona{padding:18px 20px 20px;min-width:0}
+.zona.amarilla{background:var(--amarillo-fondo);border-top:8px solid var(--amarillo)}
+.zona.naranja{background:var(--naranja-fondo);border-top:8px solid var(--naranja)}
+.zona.roja{background:var(--rojo-fondo);border-top:8px solid var(--rojo)}
+.zona .nivel{font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--suave)}
+.zona h3{font-size:26px;margin:2px 0 10px}
+.zona.roja h3{color:var(--rojo)}
+.zona ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.zona li{padding-left:16px;position:relative}
+.zona li::before{content:"";position:absolute;left:0;top:.6em;width:7px;height:7px;border-radius:50%;background:currentColor;opacity:.45}
+@media (max-width:720px){.violentometro{grid-template-columns:1fr}}
+.dato{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;margin-top:20px}
+.dato .grande{font-family:var(--display);font-weight:900;font-size:clamp(40px,8vw,64px);line-height:1;color:var(--naranja)}
+.dato p{margin:0;max-width:44ch}
+.fuente{font-size:13px;color:var(--suave);margin:8px 0 0}
+
+/* Acompañar */
+.pasos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;counter-reset:paso}
+.pasos li{counter-increment:paso;background:var(--superficie);border:1px solid var(--linea);border-radius:14px;padding:16px 18px}
+.pasos li::before{content:counter(paso);display:block;font-family:var(--display);font-weight:900;font-size:32px;line-height:1;color:var(--naranja);margin-bottom:6px}
+.pasos strong{display:block;font-size:18px}
+.pasos span{color:var(--suave);font-size:15px}
+.testigo{margin-top:28px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px 24px}
+.testigo div{border-top:2px solid var(--naranja);padding-top:10px}
+.testigo strong{display:block;font-size:17px}
+.testigo span{color:var(--suave);font-size:15px}
+.cita{margin:22px 0 0;font-family:var(--display);font-weight:800;font-size:clamp(22px,3.6vw,30px);line-height:1.15;max-width:30ch}
+
+/* Materiales */
 .descargas{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
 .material{display:flex;flex-direction:column;background:var(--superficie);border:1px solid var(--linea);border-radius:14px;overflow:hidden;min-width:0}
-.vista{background:#F6E7DB;display:flex;align-items:center;justify-content:center;padding:18px;aspect-ratio:4/3;max-width:100%}
+.vista{background:var(--hundido);display:flex;align-items:center;justify-content:center;padding:18px;aspect-ratio:4/3;max-width:100%}
 .vista img{max-height:100%;width:auto;box-shadow:0 6px 18px rgba(12,26,46,.18);border-radius:3px}
 .material .cuerpo{padding:18px 20px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
-.material h3{font-family:var(--display);font-weight:800;font-size:24px;margin:0;line-height:1.1}
+.material h3{font-size:22px}
 .material .meta{color:var(--suave);font-size:15px;margin:0}
-.boton{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:12px 18px;border-radius:10px;background:var(--naranja);color:#FFF8F2;font-weight:700;font-size:18px;text-decoration:none;border:0;cursor:pointer;font-family:var(--texto)}
-.boton:hover{background:#C94C08}
-.boton svg{width:20px;height:20px;flex:none}
+.boton{margin-top:auto;border-radius:10px;background:var(--naranja);color:#FFF8F2;font-size:17px;min-height:52px}
 .material .cuerpo .boton{margin-top:14px}
 .estado{min-height:1.4em;font-size:14px;color:var(--suave);margin:6px 0 0;text-align:center}
 
-/* Teléfonos */
-.directorio{display:flex;flex-direction:column;gap:12px}
-.contacto{display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px 16px;background:var(--superficie);border:1px solid var(--linea);border-radius:14px;padding:16px 18px}
-.contacto.urgente{border:2px solid var(--emergencia)}
-.contacto .info{min-width:0}
-.contacto .quien{font-weight:700;font-size:18px;margin:0}
-.contacto .para{color:var(--suave);font-size:15px;margin:2px 0 0}
-.contacto .numero{font-family:var(--display);font-weight:800;font-stretch:100%;font-size:clamp(26px,5vw,34px);letter-spacing:.01em;font-variant-numeric:tabular-nums;margin:4px 0 0;user-select:all;color:var(--tinta)}
-.contacto.urgente .numero{color:var(--emergencia)}
-.botones-contacto{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-.llamar{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:52px;min-width:120px;padding:10px 18px;border-radius:999px;background:var(--naranja);color:#FFF8F2;font-weight:700;font-size:17px;text-decoration:none}
-.contacto.urgente .llamar{background:#B3261E}
-.llamar svg{width:18px;height:18px}
-.copiar{min-height:52px;padding:10px 16px;border-radius:999px;background:transparent;border:1.5px solid var(--linea);color:var(--tinta);font:600 15px var(--texto);cursor:pointer}
-.copiar:hover{border-color:var(--naranja)}
-@media (max-width:560px){
-  .contacto{grid-template-columns:1fr}
-  .botones-contacto{justify-content:stretch}
-  .llamar{flex:1}
-}
-.nota{color:var(--suave);font-size:15px;max-width:62ch;margin:16px 0 0}
+/* Compartir */
+.compartir{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:20px}
+
+/* Instagram */
+.insta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:14px 20px;margin-top:20px;padding:18px 20px;border-radius:14px;background:#0C1A2E;color:#FFF8F2;text-decoration:none}
+.insta .ig-texto{display:flex;align-items:center;gap:14px;min-width:0}
+.insta .ig-icono{width:48px;height:48px;flex:none;border-radius:14px;background:var(--naranja);display:flex;align-items:center;justify-content:center}
+.insta .ig-icono svg{width:26px;height:26px;color:#FFF8F2}
+.insta small{display:block;font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.75}
+.insta .ig-usuario{font-family:var(--display);font-weight:800;font-size:clamp(22px,4.5vw,28px);line-height:1.1;overflow-wrap:anywhere}
+.insta .ig-boton{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:10px 20px;border-radius:999px;background:var(--naranja);color:#FFF8F2;font-weight:700;font-size:16px}
+.insta:hover .ig-boton{background:var(--naranja-hover)}
+@media (max-width:480px){.insta .ig-boton{flex:1 1 100%}}
+.cierre a{color:var(--naranja);font-weight:700;text-decoration:none}
 
 /* Cierre */
 .cierre{margin-top:56px;border-top:1px solid var(--linea)}
 .cierre .envoltura{padding-block:28px 40px;display:flex;flex-wrap:wrap;gap:12px 24px;justify-content:space-between;align-items:baseline}
 .cierre .firma{font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:13px}
 .cierre .hashtags{font-family:var(--display);font-weight:800;color:var(--naranja)}
+.cierre .fuentes{flex-basis:100%;font-size:13px;color:var(--suave);margin:0}
+
+/* Barra fija en celular */
+.barra{display:none}
+@media (max-width:720px){
+  .barra{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:8px;position:fixed;z-index:15;left:0;right:0;bottom:0;padding:10px max(12px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));background:var(--superficie);border-top:1px solid var(--linea);box-shadow:0 -6px 20px rgba(0,0,0,.08)}
+  .barra a{display:flex;align-items:center;justify-content:center;gap:6px;min-height:48px;border-radius:12px;font:700 15px var(--texto);text-decoration:none;background:var(--hundido);color:var(--tinta)}
+  .barra a.b911{background:#B3261E;color:#FFFFFF}
+  .barra svg{width:18px;height:18px}
+  body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+}
 
 @media (prefers-reduced-motion:no-preference){
-  .boton,.llamar,.copiar,.chip{transition:background .15s,border-color .15s,transform .15s}
-  .llamar:active,.boton:active{transform:scale(.98)}
+  .llamar,.ir,.boton,.copiar,.chip{transition:background .15s,border-color .15s,transform .15s}
+  .llamar:active,.boton:active,.ir:active{transform:scale(.98)}
 }
 </style>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-tel" viewBox="0 0 24 24"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></symbol>
+  <symbol id="i-ruta" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M3 11l18-8-8 18-2-8-8-2z"/></symbol>
+  <symbol id="i-mapa" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14"/></symbol>
+  <symbol id="i-bajar" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/></g><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-ayuda" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21s-7.5-4.6-9.5-9.3C1 8 3.3 4 7 4c2 0 3.5 1.1 5 3 1.5-1.9 3-3 5-3 3.7 0 6 4 4.5 7.7C19.5 16.4 12 21 12 21z"/></symbol>
+</svg>
+
+<a class="salir" id="salir" href="https://www.google.com/search?q=clima+aguascalientes" rel="noreferrer">
+  <svg aria-hidden="true"><use href="#i-x"/></svg> Salir rápido
+</a>
+
 <header class="portada">
- 
   <div class="envoltura">
     <img class="logos" src="logos.png" alt="Universidad de Santa Fe · Facultad de la Salud" width="357" height="180">
-    <div class="sello">Medicina · Universidad de Santa Fe · 3-C</div>
+    <div class="sello">Medicina · Universidad de Santa Fe</div>
     <h1>Día naranja.</h1>
     <p class="fecha">25 de noviembre</p>
-    <p class="lema">Día Internacional de la Eliminación de la Violencia contra la Mujer. Aquí están los materiales de la plática y los teléfonos para pedir ayuda.</p>
-    <div class="acciones-rapidas">
-      <a class="chip lleno" href="#ayuda">Teléfonos de ayuda</a>
-      <a class="chip" href="#materiales">Descargar materiales</a>
-    </div>
+    <p class="lema">Gracias por pasar a nuestra expo. Guarda esta página: aquí tienes a dónde llamar, a dónde ir y cómo reconocer la violencia.</p>
+    <nav class="atajos" aria-label="Ir a">
+      <a class="chip lleno" href="#materiales">Descargar materiales</a>
+      <a class="chip" href="#ayuda">Pedir ayuda</a>
+      <a class="chip" href="#lugares">Lugares y mapas</a>
+      <a class="chip" href="#violentometro">Violentómetro</a>
+      <a class="chip" href="https://www.instagram.com/entrenosotras.usf/" target="_blank" rel="noopener"><svg aria-hidden="true" style="width:18px;height:18px"><use href="#i-ig"/></svg>Instagram</a>
+    </nav>
   </div>
 </header>
 
 <main>
+  <!-- MATERIALES -->
   <section class="bloque" id="materiales">
     <div class="envoltura">
-      <div class="etiqueta">Materiales</div>
+      <div class="etiqueta">Materiales de la expo</div>
       <h2>Descarga el cartel y la presentación</h2>
-      <p class="intro">Los dos archivos están en PDF. Puedes compartirlos con quien quieras.</p>
+      <p class="intro">Los dos archivos están en PDF. Compártelos con quien quieras.</p>
 
       <div class="descargas">
         <article class="material">
-          <div class="vista"><img src="cartel-1.jpg" alt="Vista previa del cartel 25N: Hacia la erradicación estructural de la violencia de género" width="480" height="640"></div>
+          <div class="vista"><img src="cartel-1.jpg" alt="Vista previa del cartel 25N: Hacia la erradicación estructural de la violencia de género" width="480" height="640" loading="lazy"></div>
           <div class="cuerpo">
             <h3>Cartel 25N</h3>
             <p class="meta">Marco legal, datos de la ENDIREH y reformas como la Ley Olimpia y la Ley Vicaria. PDF · 1 página · 118 KB</p>
-            <a class="boton" id="btn-cartel" href="cartel-25N.pdf" download="Cartel-25N.pdf" data-archivo="Cartel-25N.pdf">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg>
-              Descargar cartel
-            </a>
+            <a class="boton" id="btn-cartel" href="cartel-25N.pdf" download="Cartel-25N.pdf" data-archivo="Cartel-25N.pdf"><svg aria-hidden="true"><use href="#i-bajar"/></svg>Descargar cartel</a>
             <p class="estado" id="estado-cartel" role="status"></p>
           </div>
         </article>
-
         <article class="material">
-          <div class="vista"><img src="slide-01.jpg" alt="Primera diapositiva de la presentación Día naranja, 25 de noviembre" width="720" height="384"></div>
+          <div class="vista"><img src="slide-01.jpg" alt="Primera diapositiva de la presentación Día naranja, 25 de noviembre" width="720" height="384" loading="lazy"></div>
           <div class="cuerpo">
-            <h3>Presentación «Nombrarla para detenerla»</h3>
-            <p class="meta">Origen de la fecha, tipos de violencia, violentómetro, la mirada médica y cómo acompañar. PDF · 13 diapositivas · 477 KB</p>
-            <a class="boton" id="btn-presentacion" href="presentacion-nombrarla-para-detenerla.pdf" download="Nombrarla-para-detenerla.pdf" data-archivo="Nombrarla-para-detenerla.pdf">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg>
-              Descargar presentación
-            </a>
+            <h3>Presentación: Nombrarla para detenerla</h3>
+            <p class="meta">Origen de la fecha, tipos de violencia, violentómetro, la mirada médica y cómo acompañar. PDF · 13 diapositivas · 476 KB</p>
+            <a class="boton" id="btn-presentacion" href="presentacion-nombrarla-para-detenerla.pdf" download="Nombrarla-para-detenerla.pdf" data-archivo="Nombrarla-para-detenerla.pdf"><svg aria-hidden="true"><use href="#i-bajar"/></svg>Descargar presentación</a>
             <p class="estado" id="estado-presentacion" role="status"></p>
           </div>
         </article>
       </div>
+
+      <a class="insta" href="https://www.instagram.com/entrenosotras.usf/" target="_blank" rel="noopener">
+        <span class="ig-texto">
+          <span class="ig-icono"><svg aria-hidden="true"><use href="#i-ig"/></svg></span>
+          <span><small>Síguenos en Instagram</small><span class="ig-usuario">@entrenosotras.usf</span></span>
+        </span>
+        <span class="ig-boton">Abrir Instagram</span>
+      </a>
+
+      <div class="compartir" id="compartir" hidden>
+        <button class="ir" type="button" id="btn-compartir">Compartir esta página</button>
+        <a class="ir" id="btn-whatsapp" href="#" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+      </div>
     </div>
   </section>
-
+  <!-- AYUDA INMEDIATA -->
   <section class="bloque" id="ayuda">
     <div class="envoltura">
-      <div class="etiqueta">Dónde pedir ayuda</div>
+      <div class="etiqueta">Pide ayuda</div>
       <h2>Toca el número para llamar</h2>
-      <p class="intro">Si tú o alguien más está en peligro ahora mismo, llama al 911.</p>
+      <p class="intro">Puedes llamar por ti o por alguien más. No necesitas tener pruebas ni estar segura de que es violencia.</p>
 
-      <div class="directorio">
-        <div class="contacto urgente">
-          <div class="info">
-            <p class="quien">Emergencias</p>
-            <p class="para">Si hay peligro inmediato. Atiende las 24 horas.</p>
-            <p class="numero">911</p>
-          </div>
-          <div class="botones-contacto">
-            <a class="llamar" href="tel:911" aria-label="Llamar al 911">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
-              Llamar
-            </a>
+      <div class="ahora">
+        <div class="linea-ayuda urgente">
+          <p class="quien">Emergencias</p>
+          <p class="numero">911</p>
+          <p class="para">Si hay peligro ahora mismo. Las 24 horas.</p>
+          <div class="fila-botones">
+            <a class="llamar urg" href="tel:911"><svg aria-hidden="true"><use href="#i-tel"/></svg>Llamar al 911</a>
             <button class="copiar" type="button" id="copiar-911" data-numero="911">Copiar</button>
           </div>
         </div>
-
-        <div class="contacto">
-          <div class="info">
-            <p class="quien">Línea de las Mujeres</p>
-            <p class="para">Marca 079 y elige la opción 1. Apoyo psicológico y asesoría legal.</p>
-            <p class="numero">079 · Elige la opción 1.</p>
-          </div>
-          <div class="botones-contacto">
-            <a class="llamar" href="tel:079" aria-label="Llamar al 079">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
-              Llamar
-            </a>
+        <div class="linea-ayuda">
+          <p class="quien">Línea de las Mujeres</p>
+          <p class="numero">079 <span style="font-size:.5em">opción 1</span></p>
+          <p class="para">Apoyo psicológico y asesoría legal por teléfono.</p>
+          <div class="fila-botones">
+            <a class="llamar" href="tel:079"><svg aria-hidden="true"><use href="#i-tel"/></svg>Llamar al 079</a>
             <button class="copiar" type="button" id="copiar-079" data-numero="079">Copiar</button>
-          </div>
-        </div>
-
-        <div class="contacto">
-          <div class="info">
-            <p class="quien">Instituto Aguascalentense de las Mujeres</p>
-            <p class="para">Atención psicológica, trabajo social y asesoría jurídica. Lunes a viernes, 8:00 a 16:00.</p>
-            <p class="numero">449 910 21 28</p>
-          </div>
-          <div class="botones-contacto">
-            <a class="llamar" href="tel:+524499102128" aria-label="Llamar al Instituto Aguascalentense de las Mujeres, 449 910 21 28">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
-              Llamar
-            </a>
-            <button class="copiar" type="button" id="copiar-iam" data-numero="449 910 21 28">Copiar</button>
-          </div>
-        </div>
-
-        <div class="contacto">
-          <div class="info">
-            <p class="quien">Instituto Aguascalentense de las Mujeres · información general</p>
-            <p class="para">Dudas sobre servicios y trámites.</p>
-            <p class="numero">449 918 25 50</p>
-          </div>
-          <div class="botones-contacto">
-            <a class="llamar" href="tel:+524499182550" aria-label="Llamar a información general del Instituto, 449 918 25 50">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>
-              Llamar
-            </a>
-            <button class="copiar" type="button" id="copiar-iam-info" data-numero="449 918 25 50">Copiar</button>
           </div>
         </div>
       </div>
 
-      <p class="nota">Si al tocar «Llamar» no se abre tu marcador, usa «Copiar» y pega el número en tu teléfono. Recuerda: nadie tiene que contar lo que vivió si no quiere, y pedir ayuda por otra persona también cuenta.</p>
+      <div class="aviso">
+        <div class="reloj">72 h<small>no esperes</small></div>
+        <p><strong>Si fue violencia sexual, ve a un hospital lo antes posible.</strong> En las primeras 72 horas te pueden dar medicamentos para prevenir el VIH y otras infecciones, y anticoncepción de emergencia (hasta 120 horas). Por la NOM-046 te deben atender aunque no hayas puesto una denuncia.</p>
+      </div>
     </div>
   </section>
+
+  <!-- LUGARES -->
+  <section class="bloque" id="lugares">
+    <div class="envoltura">
+      <div class="etiqueta">Lugares en Aguascalientes</div>
+      <h2>A dónde puedes ir</h2>
+      <p class="intro">El botón Cómo llegar abre Google Maps con la ruta desde donde estás.</p>
+
+      <div class="lugares">
+        <article class="lugar" data-lugar="Instituto Aguascalentense de las Mujeres, Felipe Pescador 102, Aguascalientes, Ags.">
+          <h3>Instituto Aguascalentense de las Mujeres</h3>
+          <div class="pills"><span class="pill">Lun a vie · 8:00 a 16:00</span><span class="pill">Gratuito</span></div>
+          <p class="que">Atención psicológica, trabajo social y asesoría jurídica.</p>
+          <address><svg aria-hidden="true"><use href="#i-pin"/></svg>Felipe Pescador 102, Talleres F.F.C.C., 20180 Aguascalientes, Ags.</address>
+          <div class="tels"><a href="tel:+524499102128">449 910 21 28</a><a href="tel:+524499182550">449 918 25 50 · información</a></div>
+          <div class="fila-botones">
+            <a class="ir ruta" href="https://www.google.com/maps/search/?api=1&amp;query=Instituto%20Aguascalentense%20de%20las%20Mujeres%2C%20Felipe%20Pescador%20102%2C%20Aguascalientes" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ruta"/></svg>Cómo llegar</a>
+            <button class="ir ver-mapa" type="button" hidden><svg aria-hidden="true"><use href="#i-mapa"/></svg>Ver mapa</button>
+          </div>
+        </article>
+
+        <article class="lugar" data-lugar="Observatorio de Violencia Social y de Género de Aguascalientes, José María Morelos y Pavón 211, Zona Centro, Aguascalientes, Ags.">
+          <h3>Observatorio de Violencia Social y de Género</h3>
+          <div class="pills"><span class="pill">Asociación civil</span></div>
+          <p class="que">Acompañamiento jurídico y social a mujeres víctimas de violencia y a sus familias.</p>
+          <address><svg aria-hidden="true"><use href="#i-pin"/></svg>José María Morelos y Pavón 211, Zona Centro, 20000 Aguascalientes, Ags.</address>
+          <div class="tels"><a href="tel:+524492988676">449 298 86 76</a></div>
+          <div class="fila-botones">
+            <a class="ir ruta" href="https://www.google.com/maps/search/?api=1&amp;query=Morelos%20211%2C%20Zona%20Centro%2C%20Aguascalientes%2C%20Ags." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ruta"/></svg>Cómo llegar</a>
+            <button class="ir ver-mapa" type="button" hidden><svg aria-hidden="true"><use href="#i-mapa"/></svg>Ver mapa</button>
+          </div>
+        </article>
+
+        <article class="lugar" data-lugar="Instituto Municipal de la Mujer, Vázquez del Mercado 132, Zona Centro, Aguascalientes, Ags.">
+          <h3>Instituto Municipal de la Mujer</h3>
+          <div class="pills"><span class="pill">Lun a vie · 8:00 a 15:30</span><span class="pill">Gratuito</span></div>
+          <p class="que">Orientación psicológica y legal del municipio de Aguascalientes.</p>
+          <address><svg aria-hidden="true"><use href="#i-pin"/></svg>Vázquez del Mercado 132, Zona Centro, 20000 Aguascalientes, Ags.</address>
+          <div class="tels"><a href="tel:+524499163610">449 916 36 10</a><a href="tel:+524499157439">449 915 74 39</a></div>
+          <div class="fila-botones">
+            <a class="ir ruta" href="https://www.google.com/maps/search/?api=1&amp;query=Instituto%20Municipal%20de%20la%20Mujer%2C%20V%C3%A1zquez%20del%20Mercado%20132%2C%20Aguascalientes" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ruta"/></svg>Cómo llegar</a>
+            <button class="ir ver-mapa" type="button" hidden><svg aria-hidden="true"><use href="#i-mapa"/></svg>Ver mapa</button>
+          </div>
+        </article>
+
+        <article class="lugar" data-lugar="Fiscalía General del Estado de Aguascalientes, Av. Héroe de Nacozari 201, Aguascalientes, Ags.">
+          <h3>Fiscalía General del Estado</h3>
+          <div class="pills"><span class="pill abierto">Abierto 24 horas</span></div>
+          <p class="que">Para poner una denuncia.</p>
+          <address><svg aria-hidden="true"><use href="#i-pin"/></svg>Av. Héroe de Nacozari 201, Barrio de la Purísima, 20259 Aguascalientes, Ags.</address>
+          <div class="tels"><a href="tel:+524494782800">449 478 28 00</a><a href="tel:8008013324">800 801 33 24 · sin costo</a></div>
+          <div class="fila-botones">
+            <a class="ir ruta" href="https://www.google.com/maps/search/?api=1&amp;query=Fiscal%C3%ADa%20General%20del%20Estado%20de%20Aguascalientes%2C%20H%C3%A9roe%20de%20Nacozari%20201" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ruta"/></svg>Cómo llegar</a>
+            <button class="ir ver-mapa" type="button" hidden><svg aria-hidden="true"><use href="#i-mapa"/></svg>Ver mapa</button>
+          </div>
+        </article>
+
+        <article class="lugar" data-lugar="Hospital de la Mujer, Av. Siglo XXI 109, Ciudad Satélite Morelos, Aguascalientes, Ags.">
+          <h3>Hospital de la Mujer</h3>
+          <div class="pills"><span class="pill abierto">Abierto 24 horas</span></div>
+          <p class="que">Atención médica y de urgencias, también después de una agresión sexual.</p>
+          <address><svg aria-hidden="true"><use href="#i-pin"/></svg>Av. Siglo XXI 109, Cd. Satélite Morelos, 20298 Aguascalientes, Ags.</address>
+          <div class="tels"><a href="tel:+524499773330">449 977 33 30</a></div>
+          <div class="fila-botones">
+            <a class="ir ruta" href="https://www.google.com/maps/search/?api=1&amp;query=Hospital%20de%20la%20Mujer%2C%20Av.%20Siglo%20XXI%20109%2C%20Aguascalientes" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ruta"/></svg>Cómo llegar</a>
+            <button class="ir ver-mapa" type="button" hidden><svg aria-hidden="true"><use href="#i-mapa"/></svg>Ver mapa</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIOLENTÓMETRO -->
+  <section class="bloque" id="violentometro">
+    <div class="envoltura">
+      <div class="etiqueta">El violentómetro</div>
+      <h2>La violencia escala poco a poco</h2>
+      <p class="intro">Casi nunca empieza con golpes. Empieza con cosas que parecen normales.</p>
+
+      <div class="violentometro">
+        <div class="zona amarilla">
+          <div class="nivel">Zona amarilla</div>
+          <h3>Ten cuidado</h3>
+          <ul><li>Bromas hirientes</li><li>Chantaje y mentiras</li><li>Celos</li><li>Culpabilizar</li><li>Ignorar o ridiculizar</li><li>Revisar tu celular</li></ul>
+        </div>
+        <div class="zona naranja">
+          <div class="nivel">Zona naranja</div>
+          <h3>Reacciona</h3>
+          <ul><li>Humillar en público</li><li>Controlar a dónde vas</li><li>Prohibir amistades</li><li>Controlar tu dinero</li><li>Amenazar</li><li>Golpear jugando</li></ul>
+        </div>
+        <div class="zona roja">
+          <div class="nivel">Zona roja</div>
+          <h3>Pide ayuda</h3>
+          <ul><li>Golpes</li><li>Encierro</li><li>Amenazas con armas</li><li>Abuso sexual</li><li>Violación</li><li>Feminicidio</li></ul>
+        </div>
+      </div>
+      <p class="fuente">Versión resumida del violentómetro del Instituto Politécnico Nacional.</p>
+
+      <div class="dato">
+        <span class="grande">7 de cada 10</span>
+        <p>mujeres de 15 años o más en México han vivido al menos un tipo de violencia a lo largo de su vida.</p>
+      </div>
+      <p class="fuente">INEGI, ENDIREH 2021: 70.1 %.</p>
+    </div>
+  </section>
+
+  <!-- ACOMPAÑAR -->
+  <section class="bloque" id="acompanar">
+    <div class="envoltura">
+      <div class="etiqueta">Primera respuesta, según la OMS</div>
+      <h2>Si alguien te lo cuenta</h2>
+      <ol class="pasos">
+        <li><strong>Escuchar</strong><span>Con atención y sin juzgar.</span></li>
+        <li><strong>Preguntar</strong><span>Qué necesita y qué le preocupa.</span></li>
+        <li><strong>Validar</strong><span>Dile: Te creo. No es tu culpa.</span></li>
+        <li><strong>Proteger</strong><span>Revisar si está en peligro y hacer un plan.</span></li>
+        <li><strong>Apoyar</strong><span>Conectarla con los lugares de esta página.</span></li>
+      </ol>
+
+    </div>
+  </section>
+
 </main>
 
 <footer class="cierre">
   <div class="envoltura">
-    <span class="firma">Medicina · Universidad de Santa Fe · 3-C  </span>
-    <span class="hashtags">#25N · Pinta de naranja</span>
+    <span class="firma">Medicina · Universidad de Santa Fe</span>
+    <span class="hashtags">#25N · Pinta de naranja · <a href="https://www.instagram.com/entrenosotras.usf/" target="_blank" rel="noopener">@entrenosotras.usf</a></span>
+    <p class="fuentes">Directorio: ACNUR, ficha de servicios de Aguascalientes (junio 2026) y datos públicos de cada institución. Si un número no contesta, llama al 079.</p>
   </div>
 </footer>
 
+<nav class="barra" aria-label="Accesos rápidos">
+  <a class="b911" href="tel:911"><svg aria-hidden="true"><use href="#i-tel"/></svg>911</a>
+  <a href="#ayuda"><svg aria-hidden="true"><use href="#i-ayuda"/></svg>Ayuda</a>
+  <a href="#lugares"><svg aria-hidden="true"><use href="#i-mapa"/></svg>Mapa</a>
+</nav>
+
 <script>
 (function(){
+  var web = window.MODO_WEB === true;
+
+  // Salida rápida: reemplaza la página para que atrás no regrese aquí
+  var salir = document.getElementById('salir');
+  if (web) {
+    salir.addEventListener('click', function(ev){ ev.preventDefault(); location.replace(salir.href); });
+  }
+
   // Copiar números
   document.querySelectorAll('.copiar').forEach(function(btn){
     btn.addEventListener('click', function(){
       var num = btn.getAttribute('data-numero');
-      var listo = function(){ var t = btn.textContent; btn.textContent = 'Copiado'; setTimeout(function(){ btn.textContent = 'Copiar'; }, 1600); };
+      var listo = function(t){ btn.textContent = t; setTimeout(function(){ btn.textContent = 'Copiar'; }, 1600); };
       var respaldo = function(){
-        var p = btn.closest('.contacto').querySelector('.numero');
+        var p = btn.closest('.linea-ayuda').querySelector('.numero');
         var r = document.createRange(); r.selectNodeContents(p);
         var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-        btn.textContent = 'Seleccionado';
-        setTimeout(function(){ btn.textContent = 'Copiar'; }, 1600);
+        listo('Seleccionado');
       };
       try {
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(num).then(listo, respaldo);
-        } else { respaldo(); }
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(num).then(function(){ listo('Copiado'); }, respaldo);
+        else respaldo();
       } catch(e){ respaldo(); }
     });
   });
 
-  // Descargas: en una página normal el enlace <a download> funciona solo.
-  // Dentro de Claude se usa la capacidad de descargas.
+  // Mapas dentro de la página (solo en la versión publicada en la web)
+  if (web) {
+    document.querySelectorAll('.lugar').forEach(function(card){
+      var btn = card.querySelector('.ver-mapa');
+      var q = card.getAttribute('data-lugar');
+      btn.hidden = false;
+      btn.addEventListener('click', function(){
+        var caja = card.querySelector('.mapa');
+        if (caja) { caja.remove(); btn.lastChild.textContent = 'Ver mapa'; return; }
+        caja = document.createElement('div');
+        caja.className = 'mapa';
+        var f = document.createElement('iframe');
+        f.title = 'Mapa: ' + card.querySelector('h3').textContent;
+        f.loading = 'lazy';
+        f.referrerPolicy = 'no-referrer-when-downgrade';
+        f.src = 'https://maps.google.com/maps?hl=es&z=16&output=embed&q=' + encodeURIComponent(q);
+        caja.appendChild(f);
+        card.insertBefore(caja, card.querySelector('.fila-botones'));
+        btn.lastChild.textContent = 'Ocultar mapa';
+      });
+    });
+
+    // Compartir
+    var bloque = document.getElementById('compartir');
+    var url = location.href.split('#')[0];
+    var texto = 'Día Naranja 25N: teléfonos y lugares de ayuda en Aguascalientes ' + url;
+    document.getElementById('btn-whatsapp').href = 'https://wa.me/?text=' + encodeURIComponent(texto);
+    var bc = document.getElementById('btn-compartir');
+    if (navigator.share) {
+      bc.addEventListener('click', function(){ navigator.share({ title: 'Día Naranja 25N', text: 'Teléfonos y lugares de ayuda en Aguascalientes', url: url }).catch(function(){}); });
+    } else { bc.hidden = true; }
+    bloque.hidden = false;
+  }
+
+  // Descargas dentro de Claude
   if (!window.claude || typeof window.claude.use !== 'function') return;
   window.claude.use('downloads').then(function(dl){
     document.querySelectorAll('a.boton[data-archivo]').forEach(function(a){
       var estado = document.getElementById(a.id.replace('btn-','estado-'));
       if (!dl) {
-        // Sin capacidad: abrir el PDF para que se pueda guardar desde el visor
         a.removeAttribute('download');
         a.href = new URL(a.getAttribute('href'), location.href).href;
         a.target = '_blank'; a.rel = 'noopener';
