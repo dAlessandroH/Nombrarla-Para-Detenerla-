@@ -205,10 +205,6 @@ h3{font-family:var(--display);font-weight:800;line-height:1.1;margin:0}
   <symbol id="i-ayuda" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21s-7.5-4.6-9.5-9.3C1 8 3.3 4 7 4c2 0 3.5 1.1 5 3 1.5-1.9 3-3 5-3 3.7 0 6 4 4.5 7.7C19.5 16.4 12 21 12 21z"/></symbol>
 </svg>
 
-<a class="salir" id="salir" href="https://www.google.com/search?q=clima+aguascalientes" rel="noreferrer">
-  <svg aria-hidden="true"><use href="#i-x"/></svg> Salir rápido
-</a>
-
 <header class="portada">
   <div class="envoltura">
     <img class="logos" src="logos.png" alt="Universidad de Santa Fe · Facultad de la Salud" width="357" height="180">
@@ -445,11 +441,7 @@ h3{font-family:var(--display);font-weight:800;line-height:1.1;margin:0}
 (function(){
   var web = window.MODO_WEB === true;
 
-  // Salida rápida: reemplaza la página para que atrás no regrese aquí
-  var salir = document.getElementById('salir');
-  if (web) {
-    salir.addEventListener('click', function(ev){ ev.preventDefault(); location.replace(salir.href); });
-  }
+
 
   // Copiar números
   document.querySelectorAll('.copiar').forEach(function(btn){
