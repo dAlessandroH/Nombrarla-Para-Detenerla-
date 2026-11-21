@@ -17,7 +17,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,500;62..125,800;62..125,900&family=Source+Sans+3:wght@400;600;700&display=swap">
 <style>
-/* Layout: portada naranja → pide ayuda (911/079) → lugares con mapa → violentómetro → cómo acompañar → materiales. En celular, barra fija abajo con 911 / Ayuda / Mapa. */
 :root{
   --naranja:#E2580B;
   --naranja-hover:#C94C08;
@@ -178,7 +177,7 @@ h3{font-family:var(--display);font-weight:800;line-height:1.1;margin:0}
 .cierre .hashtags{font-family:var(--display);font-weight:800;color:var(--naranja)}
 .cierre .fuentes{flex-basis:100%;font-size:13px;color:var(--suave);margin:0}
 
-/* Barra fija en celular */
+/* responsive desinng barra xdxd*/
 .barra{display:none}
 @media (max-width:720px){
   .barra{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:8px;position:fixed;z-index:15;left:0;right:0;bottom:0;padding:10px max(12px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(12px,env(safe-area-inset-left,0px));background:var(--superficie);border-top:1px solid var(--linea);box-shadow:0 -6px 20px rgba(0,0,0,.08)}
